@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claudia Gisell Peñate Vega — Arquitecta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+ 
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+ 
+  <!-- NOTIFICATION -->
+  <div class="notification" id="notification">
+    <div class="notification-dot"></div>
+    <span id="notificationMsg"></span>
+  </div>
+ 
+  <!-- MODAL AGREGAR PROYECTO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-title">Agregar Proyecto</div>
+      <div class="modal-subtitle">Complete los datos para añadir un nuevo trabajo al portafolio</div>
+ 
+      <div class="form-group">
+        <label class="form-label">Nombre del Proyecto *</label>
+        <input type="text" class="form-input" id="projName" placeholder="Ej. Residencia Los Pinos">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Categoría</label>
+          <select class="form-select" id="projCat">
+            <option value="">Seleccionar...</option>
+            <option>Residencial</option>
+            <option>Comercial</option>
+            <option>Institucional</option>
+            <option>Interiores</option>
+            <option>Urbanismo</option>
+            <option>Renovación</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Año</label>
+          <input type="text" class="form-input" id="projYear" placeholder="2024">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ubicación</label>
+        <input type="text" class="form-input" id="projLoc" placeholder="Ciudad, País">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descripción del Proyecto</label>
+        <textarea class="form-textarea" id="projDesc" placeholder="Describe brevemente el concepto, materiales y particularidades del proyecto..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Imágenes del Proyecto</label>
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">📐</div>
+          <div class="upload-text">
+            Arrastra tus imágenes aquí o <strong>haz clic para seleccionar</strong><br>
+            <span class="upload-hint">JPG, PNG, WEBP — Máx. 10MB por imagen</span>
+          </div>
+        </div>
+        <div class="preview-images" id="previewImages"></div>
+        <input type="file" id="fileInput" accept="image/*" multiple>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Superficie (m²)</label>
+          <input type="text" class="form-input" id="projArea" placeholder="Ej. 320 m²">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estado</label>
+          <select class="form-select" id="projStatus">
+            <option>Construido</option>
+            <option>En construcción</option>
+            <option>Proyecto</option>
+            <option>Concurso</option>
+          </select>
+        </div>
+      </div>
+      <button class="submit-btn" id="submitProject">Añadir al Portafolio</button>
+    </div>
+  </div>
+ 
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#" class="nav-logo">CGP — Arquitectura</a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre Mí</a></li>
+      <li><a href="#filosofia">Filosofía</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+ 
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#sobre-mi">Sobre Mí</a></li>
+      <li><a href="#filosofia">Filosofía</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+ 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-label">Arquitecta · Diseñadora de Espacios</div>
+      <h1 class="hero-name">
+        Claudia<br>
+        Gisell<br>
+        <em>Peñate Vega</em>
+      </h1>
+      <p class="hero-tagline">
+        Creando espacios que dialogan con la naturaleza, la cultura y las personas. Arquitectura con propósito, sensibilidad y rigor técnico.
+      </p>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Explorar portafolio</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-bg">
+        <!-- Reemplaza esta sección con una etiqueta <img> cuando tengas la fotografía -->
+        <!-- <img src="img/claudia-foto.jpg" alt="Claudia Gisell Peñate Vega"> -->
+        <div class="hero-portrait-frame">
+          <div class="portrait-initials">
+            <div class="big-letter">CGP</div>
+            <div class="sub-text">Arquitecta</div>
+          </div>
+        </div>
+        <div class="hero-year">2024</div>
+        <div class="hero-vertical-text">Arquitectura · Diseño · Innovación</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number" id="statProjects">12+</div>
+      <div class="stat-label">Proyectos Realizados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Años de Experiencia</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Reconocimientos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Clientes Satisfechos</div>
+    </div>
+  </div>
+ 
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="about-section">
+    <div class="about-left">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <div class="section-line"></div>
+        <h2 class="section-title">Sobre <em>Mí</em></h2>
+      </div>
+      <p class="about-text">
+        "La arquitectura no es solo construir edificios, es crear experiencias que transforman la vida de las personas."
+      </p>
+      <p class="about-body">
+        Soy Claudia Gisell Peñate Vega, arquitecta con más de 8 años de experiencia desarrollando proyectos residenciales, comerciales e institucionales. Mi formación académica en arquitectura me dotó de las herramientas técnicas y conceptuales para abordar cada proyecto con rigor y creatividad.
+        <br><br>
+        Mi práctica se centra en una arquitectura que escucha: escucha al cliente, escucha al lugar, escucha al contexto cultural. Cada proyecto es una oportunidad de crear algo significativo que perdure en el tiempo y enriquezca el entorno en el que se implanta.
+        <br><br>
+        Trabajo con una visión integral que abarca desde el concepto inicial hasta la supervisión de obra, garantizando coherencia entre la idea y su materialización.
+      </p>
+      <div class="about-signature">Claudia G. Peñate V.</div>
+      <div class="skills-grid">
+        <div class="skill-tag">Diseño Arquitectónico</div>
+        <div class="skill-tag">Diseño de Interiores</div>
+        <div class="skill-tag">Gestión de Obra</div>
+        <div class="skill-tag">BIM / Revit</div>
+        <div class="skill-tag">Urbanismo</div>
+        <div class="skill-tag">Arquitectura Bioclimática</div>
+        <div class="skill-tag">Renders 3D</div>
+        <div class="skill-tag">Diseño Sostenible</div>
+      </div>
+    </div>
+    <div class="about-right">
+      <!-- Reemplaza con: <img src="img/foto-perfil.jpg" alt="Claudia Peñate"> -->
+      <div class="about-image-placeholder"></div>
+    </div>
+  </section>
+ 
+  <!-- FILOSOFÍA -->
+  <section id="filosofia" class="filosofia-section">
+    <div class="section-header section-header--center">
+      <span class="section-num">02</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Filosofía de <em>Diseño</em></h2>
+    </div>
+    <p class="philosophy-quote">
+      El espacio arquitectónico debe ser una extensión del ser humano, un refugio que potencie la vida y el bienestar de quienes lo habitan.
+    </p>
+    <div class="philosophy-attr">— Claudia Gisell Peñate Vega</div>
+    <div class="pillars">
+      <div class="pillar animate-on-scroll">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 4L4 14v22h32V14L20 4z"/>
+          <path d="M14 36V24h12v12"/>
+        </svg>
+        <div class="pillar-title">Contextualidad</div>
+        <p class="pillar-text">Cada proyecto nace de una lectura profunda del lugar: su geografía, clima, cultura e historia. La arquitectura que diseño pertenece a su contexto y lo enriquece.</p>
+      </div>
+      <div class="pillar animate-on-scroll">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="20" cy="20" r="16"/>
+          <path d="M20 4v32M4 20h32M8 8l24 24M32 8L8 32"/>
+        </svg>
+        <div class="pillar-title">Sostenibilidad</div>
+        <p class="pillar-text">El diseño responsable con el medioambiente no es una opción, es una obligación. Integro estrategias bioclimáticas y materiales de bajo impacto en cada propuesta.</p>
+      </div>
+      <div class="pillar animate-on-scroll">
+        <svg class="pillar-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 36c8.836 0 16-7.163 16-16S28.836 4 20 4 4 11.163 4 20s7.163 16 16 16z"/>
+          <path d="M20 12v8l6 6"/>
+        </svg>
+        <div class="pillar-title">Humanismo</div>
+        <p class="pillar-text">Las personas son el centro de cada decisión de diseño. La escala humana, la luz natural, el confort y la experiencia sensorial guían mi proceso creativo.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- SERVICIOS -->
+  <section id="servicios" class="servicios-section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Servicios</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">01</div>
+        <div class="service-title">Diseño Arquitectónico</div>
+        <p class="service-text">Desarrollo integral del proyecto desde el programa arquitectónico hasta los planos constructivos. Incluye anteproyecto, proyecto básico y ejecutivo.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">02</div>
+        <div class="service-title">Diseño de Interiores</div>
+        <p class="service-text">Creación de espacios interiores funcionales y estéticamente coherentes. Selección de materiales, mobiliario, iluminación y acabados.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">03</div>
+        <div class="service-title">Dirección de Obra</div>
+        <p class="service-text">Supervisión y control del proceso constructivo garantizando fidelidad al diseño, calidad de materiales y cumplimiento de plazos.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">04</div>
+        <div class="service-title">Consultoría y Asesoría</div>
+        <p class="service-text">Acompañamiento técnico para reformas, ampliaciones, trámites de licencias y evaluación de proyectos existentes.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">05</div>
+        <div class="service-title">Renders y Visualización</div>
+        <p class="service-text">Generación de imágenes fotorrealistas y recorridos virtuales para visualizar el proyecto antes de su construcción.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <div class="service-num">06</div>
+        <div class="service-title">Arquitectura Sostenible</div>
+        <p class="service-text">Diseño bioclimático, certificaciones ambientales y estrategias de eficiencia energética integradas desde la concepción del proyecto.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- PORTAFOLIO -->
+  <section id="portafolio" class="portafolio-section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Portafolio de <em>Trabajos</em></h2>
+    </div>
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Residencial">Residencial</button>
+      <button class="filter-btn" data-filter="Comercial">Comercial</button>
+      <button class="filter-btn" data-filter="Institucional">Institucional</button>
+      <button class="filter-btn" data-filter="Interiores">Interiores</button>
+      <button class="filter-btn" data-filter="Urbanismo">Urbanismo</button>
+      <button class="filter-btn" data-filter="Renovación">Renovación</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+    <div class="portfolio-add-wrap">
+      <button class="add-project-btn" id="openModalBtn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="9" y1="2" x2="9" y2="16"/><line x1="2" y1="9" x2="16" y2="9"/>
+        </svg>
+        Añadir Nuevo Proyecto
+      </button>
+    </div>
+  </section>
+ 
+  <!-- PROCESO -->
+  <section id="proceso" class="proceso-section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Proceso de <em>Trabajo</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step animate-on-scroll">
+        <div class="step-dot"><span>01</span></div>
+        <div class="step-title">Escucha</div>
+        <p class="step-desc">Reunión inicial para entender las necesidades, deseos y visión del cliente. Análisis del programa de usos y presupuesto disponible.</p>
+      </div>
+      <div class="process-step animate-on-scroll">
+        <div class="step-dot"><span>02</span></div>
+        <div class="step-title">Análisis</div>
+        <p class="step-desc">Estudio del lugar, normativa, condicionantes técnicos y referentes conceptuales que orientarán el proceso creativo.</p>
+      </div>
+      <div class="process-step animate-on-scroll">
+        <div class="step-dot"><span>03</span></div>
+        <div class="step-title">Concepto</div>
+        <p class="step-desc">Desarrollo de la idea rectora del proyecto, exploración de alternativas y presentación de anteproyecto con renders y maquetas.</p>
+      </div>
+      <div class="process-step animate-on-scroll">
+        <div class="step-dot"><span>04</span></div>
+        <div class="step-title">Proyecto</div>
+        <p class="step-desc">Elaboración del proyecto ejecutivo completo: planos, especificaciones técnicas, presupuesto y gestión de licencias.</p>
+      </div>
+      <div class="process-step animate-on-scroll">
+        <div class="step-dot"><span>05</span></div>
+        <div class="step-title">Obra</div>
+        <p class="step-desc">Dirección y supervisión de la construcción, coordinación de especialistas y entrega del proyecto terminado al cliente.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="testimonios-section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Lo que Dicen mis <em>Clientes</em></h2>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Claudia transformó nuestra visión en algo que supera todo lo que imaginamos. Su sensibilidad para entender lo que realmente queríamos fue extraordinaria.</p>
+        <div class="testimonial-author">Familia Rodríguez</div>
+        <div class="testimonial-role">Residencia Privada · 2023</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">El proceso fue claro y transparente en todo momento. Los plazos se cumplieron y el resultado final superó nuestras expectativas como empresa.</p>
+        <div class="testimonial-author">Grupo Comercial Oriente</div>
+        <div class="testimonial-role">Local Comercial · 2022</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Trabajar con Claudia fue una experiencia increíble. Tiene una capacidad única para fusionar funcionalidad con belleza. Nuestro hogar es exactamente como lo soñamos.</p>
+        <div class="testimonial-author">Ana y Carlos Montoya</div>
+        <div class="testimonial-role">Casa Unifamiliar · 2024</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Profesionalismo, creatividad y atención al detalle. Cada decisión estaba respaldada por criterios técnicos sólidos y una sensibilidad estética excepcional.</p>
+        <div class="testimonial-author">Instituto Educativo San Marcos</div>
+        <div class="testimonial-role">Proyecto Institucional · 2023</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CONTACTO -->
+<section id="contacto" class="contacto-section">
+  <div class="contact-left">
+    <!-- Tu contenido izquierdo se mantiene igual -->
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <div class="section-line"></div>
+      <h2 class="section-title">Hablemos</h2>
+    </div>
+    <p class="contact-intro">
+      Cada gran proyecto comienza con una conversación. Cuéntame tu idea y construiremos juntos algo extraordinario.
+    </p>
+    <div class="contact-info">
+      <!-- ... tu información de contacto se mantiene igual ... -->
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <!-- === FORMULARIO ACTUALIZADO === -->
+    <form action="https://formspree.io/f/EEsMyY89" method="POST" class="contact-form">
+      
+      <div class="form-group">
+        <label class="form-label">Nombre Completo</label>
+        <input type="text" name="nombre" class="form-input" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" name="email" class="form-input" placeholder="tu@correo.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo de Proyecto</label>
+        <select name="tipo_proyecto" class="form-select" required>
+          <option value="">Seleccionar...</option>
+          <option>Residencia</option>
+          <option>Local Comercial</option>
+          <option>Proyecto Institucional</option>
+          <option>Diseño de Interiores</option>
+          <option>Reforma / Renovación</option>
+          <option>Consultoría</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mensaje</label>
+        <textarea name="mensaje" class="form-textarea" placeholder="Cuéntame sobre tu proyecto, localización, superficie aproximada y cualquier detalle relevante..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="contactSubmitBtn">
+        Enviar Mensaje
+      </button>
+    </form>
+  </div>
+</section>
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Claudia Gisell <span>Peñate Vega</span></div>
+    <div class="footer-links">
+      <a href="#sobre-mi">Sobre Mí</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-copy">© 2024 Claudia Gisell Peñate Vega · Arquitectura</div>
+  </footer>
+ 
+  <script src="js/main.js"></script>
+</body>
+</html>
