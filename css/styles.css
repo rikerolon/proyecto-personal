@@ -405,8 +405,8 @@ section { padding: 120px 60px; }
   font-style: italic;
 }
 .about-body {
-  font-size: 0.875rem;
-  line-height: 1.9;
+  font-size: 1.10rem;
+  line-height: 2;
   color: var(--warm-gray);
   font-weight: 300;
   margin-bottom: 48px;
@@ -582,7 +582,7 @@ section { padding: 120px 60px; }
   transition: color 0.4s;
 }
 .service-card:hover .service-title { color: var(--gold-light); }
-.service-text { font-size: 0.82rem; line-height: 1.8; color: var(--warm-gray); font-weight: 300; transition: color 0.4s; }
+.service-text { font-size: 0.98rem; line-height: 1.9; color: var(--warm-gray); font-weight: 300; transition: color 0.4s; }
 .service-card:hover .service-text { color: rgba(255,255,255,0.6); }
  
 /* ---- PORTFOLIO ---- */
@@ -741,7 +741,7 @@ section { padding: 120px 60px; }
   color: var(--cream);
   margin-bottom: 12px;
 }
-.step-desc { font-size: 0.78rem; line-height: 1.7; color: rgba(255,255,255,0.35); font-weight: 300; }
+.step-desc { font-size: 0.92rem; line-height: 1.9; color: rgba(255,255,255,0.35); font-weight: 300; }
  
 /* ---- TESTIMONIALS ---- */
 .testimonios-section { background: var(--cream); overflow: hidden; }
