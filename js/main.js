@@ -33,12 +33,12 @@ function updateStatCounter() {
  
 // ---- PORTFOLIO ----
 const defaultProjects = [
-  { name: 'Casa del Bosque', cat: 'Residencial', loc: 'Valle Verde', year: '2024', desc: 'Residencia privada integrada en entorno natural', color: '#8B7355' },
-  { name: 'Centro Comercial Plaza', cat: 'Comercial', loc: 'Centro Histórico', year: '2023', desc: 'Diseño de fachada y espacios comerciales', color: '#6B8B7A' },
-  { name: 'Café Minerva', cat: 'Interiores', loc: 'Ciudad', year: '2023', desc: 'Interiorismo de café boutique', color: '#8B6B6B' },
-  { name: 'Unidad Educativa', cat: 'Institucional', loc: 'Zona Norte', year: '2022', desc: 'Diseño de campus educativo bioclimático', color: '#7A7B6B' },
-  { name: 'Loft Urbano', cat: 'Residencial', loc: 'Centro', year: '2022', desc: 'Renovación de loft industrial', color: '#8B7B6B' },
-  { name: 'Parque Lineal', cat: 'Urbanismo', loc: 'Ribera del Río', year: '2021', desc: 'Diseño de espacio público y paisajismo', color: '#6B7B6B' }
+  { name: 'Casa del Bosque', cat: 'Residencial', loc: 'Valle Verde', year: '2024', desc: 'Residencia privada integrada en entorno natural', color: '#8B7355',imageUrl: 'img/renovacion.jpeg' },
+  { name: 'Centro Comercial Plaza', cat: 'Comercial', loc: 'Centro Histórico', year: '2023', desc: 'Diseño de fachada y espacios comerciales', color: '#6B8B7A',imageUrl: 'img/casa-del-bosque.jpg' },
+  { name: 'Café Minerva', cat: 'Interiores', loc: 'Ciudad', year: '2023', desc: 'Interiorismo de café boutique', color: '#8B6B6B',imageUrl: 'img/casa-blanca.jpg' },
+  { name: 'Unidad Educativa', cat: 'Institucional', loc: 'Zona Norte', year: '2022', desc: 'Diseño de campus educativo bioclimático', color: '#7A7B6B',imageUrl: 'img/escuela-surf.jpg' },
+  { name: 'Loft Urbano', cat: 'Residencial', loc: 'Centro', year: '2022', desc: 'Renovación de loft industrial', color: '#8B7B6B',imageUrl: 'img/casa-playa.jpg' },
+  { name: 'Apartamento', cat: 'Urbanismo', loc: 'Ribera del Río', year: '2021', desc: 'Diseño del render sobre apartamento', color: '#6B7B6B',imageUrl: 'img/render.jpg' }
 ];
  
 const gridSizes = [
@@ -202,3 +202,65 @@ document.querySelectorAll('.pillar, .service-card, .stat-item, .process-step, .t
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+//seccion admin
+
+const ADMIN_PASSWORD = "CGP2024"; // ← Tu clave
+
+// 🌟 MAPEADO CORRECTO SEGÚN TU ÚLTIMO HTML
+const loginOverlay   = document.getElementById('loginOverlay');
+const loginCancelBtn = document.getElementById('loginCancelBtn');
+const loginPassword  = document.getElementById('loginPassword');
+const loginError     = document.getElementById('loginError');
+const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+
+// Elementos de la interfaz que se muestran/ocultan al ser Admin
+const navAdminBtn    = document.getElementById('navAdminBtn');    // Botón "Admin" del menú
+const openModalBtn   = document.getElementById('openModalBtn');   // Botón "Añadir Nuevo Proyecto"
+const adminBadge     = document.getElementById('adminBadge');     // El cartelito de "Modo Administradora"
+
+// 🛠️ 1. Abrir el modal de login desde el menú de navegación
+if (navAdminBtn) {
+  navAdminBtn.addEventListener('click', () => {
+    loginPassword.value       = '';
+    loginError.style.display   = 'none';
+    loginOverlay.classList.add('open');
+    setTimeout(() => loginPassword.focus(), 100);
+  });
+}
+
+// 🛠️ 2. Cerrar el modal al presionar "Cancelar" o hacer clic fuera de él
+if (loginCancelBtn) {
+  loginCancelBtn.addEventListener('click', () => loginOverlay.classList.remove('open'));
+}
+loginOverlay.addEventListener('click', e => {
+  if (e.target === loginOverlay) loginOverlay.classList.remove('open');
+});
+
+// 🛠️ 3. Función para verificar la clave
+function checkAdminPass() {
+  if (loginPassword.value === ADMIN_PASSWORD) {
+    loginOverlay.classList.remove('open'); // Cierra la ventana flotante
+    
+    // El login fue exitoso: mostramos herramientas de administración
+    if (openModalBtn) openModalBtn.style.display = 'inline-flex';
+    if (adminBadge)   adminBadge.style.display   = 'flex';
+    
+  } else {
+    loginError.style.display = 'block'; // Muestra "Contraseña incorrecta"
+    loginPassword.value     = '';
+    loginPassword.focus();
+  }
+}
+
+// Escuchas para activar la validación (Clic o presionar Enter)
+loginSubmitBtn.addEventListener('click', checkAdminPass);
+loginPassword.addEventListener('keydown', e => { if (e.key === 'Enter') checkAdminPass(); });
+
+// 🛠️ 4. Función para Cerrar Sesión (la que llama tu botón con onclick="logoutAdmin()")
+window.logoutAdmin = function() {
+  if (openModalBtn) openModalBtn.style.display = 'none'; // Esconde el botón de añadir
+  if (adminBadge)   adminBadge.style.display   = 'none'; // Esconde el badge flotante
+  
+  // Opcional: limpiar rastros si es necesario
+  console.log("Sesión de administradora cerrada.");
+};
